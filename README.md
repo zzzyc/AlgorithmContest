@@ -1,0 +1,3 @@
+# AlgorithmContest
+
+Just contest records.
