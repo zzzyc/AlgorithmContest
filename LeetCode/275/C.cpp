@@ -1,3 +1,4 @@
+// 适合每个字符不止出现一次 
 class Solution {
 public:
     int wordCount(vector<string>& s, vector<string>& t) {
@@ -23,5 +24,30 @@ public:
             }
         }
         return cnt;
+    }
+};
+
+// 只适用于本题 
+class Solution {
+public:
+    int wordCount(vector<string>& startWords, vector<string>& targetWords) {
+        unordered_set<int> S;
+        for(auto& u : startWords) {
+            int v = 0;
+            for(auto c : u) v ^= 1 << (c - 'a');
+            S.insert(v);
+        }
+        
+        int res = 0;
+        for(auto& u : targetWords) {
+            int v = 0;
+            for(auto c : u) v ^= 1 << (c - 'a');
+            for(auto c : u) 
+                if(S.count(v ^ (1 << (c - 'a')))) {
+                    res += 1;
+                    break;
+                }
+        }
+        return res;
     }
 };
