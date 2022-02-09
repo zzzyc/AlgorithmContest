@@ -1,3 +1,3 @@
 # AlgorithmContest
 
-Just contest records.
+My Contest Records and Programming Templates.

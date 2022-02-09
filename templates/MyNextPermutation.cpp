@@ -1,4 +1,4 @@
-/*
+i/*
 author: solego
 create time: 2022/02/09 13:52
 Coding Interviews II 38. https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/
@@ -20,7 +20,10 @@ public:
         	has_next = 1;
         	temp = s;
 		}
-    	
+    	/*
+            找到第一个后(p)比前(p-1)大的，证明p~n-1都是单调递减
+            所以将p~n-1翻转，在从这里面找到最小的比(p-1)大的元素，两者交换位置即可
+        */
     	int p = (int)s.size() - 1;
     	while(p > 0 && s[p - 1] >= s[p]) p -= 1;
     	reverse(s.begin() + p, s.end());
